@@ -7,11 +7,15 @@
 A tiny, native macOS app that sits where your default browser goes and sends every link
 to the right browser, profile or app. Most of the time you never see it.
 
+[![CI](https://github.com/dskiba/air-traffic/actions/workflows/ci.yml/badge.svg)](https://github.com/dskiba/air-traffic/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/dskiba/air-traffic?include_prereleases)](https://github.com/dskiba/air-traffic/releases)
 ![macOS 26+](https://img.shields.io/badge/macOS-26%2B-black?logo=apple)
 ![Swift 6](https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white)
 ![Size](https://img.shields.io/badge/app-under%201%20MB-2ea44f)
 ![Dependencies](https://img.shields.io/badge/dependencies-0-2ea44f)
-![License: MIT](https://img.shields.io/badge/license-MIT-blue)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+[Install](#install) · [Configuration](#configuration) · [How it compares](#how-it-compares) · [Contributing](CONTRIBUTING.md)
 
 <img src="docs/picker.png" width="386" alt="The picker: browser icons under the link, with keyboard hints">
 
@@ -61,13 +65,24 @@ Hold `⌥` while clicking any link to get the picker even when a rule matches.
 
 Requires **macOS 26 Tahoe** or later, on Apple silicon or Intel.
 
-**Download:** grab `Air Traffic.zip` from [Releases](../../releases), move the app to `/Applications`,
-open it and click **Make Default**.
+### Download
 
-**Build from source:**
+1. Get the latest `Air-Traffic-*.zip` from [Releases](https://github.com/dskiba/air-traffic/releases),
+   unzip it and move **Air Traffic** to `/Applications`.
+2. Open it. Because the app isn't notarized by Apple yet, macOS stops it the first time:
+   open **System Settings → Privacy & Security**, scroll down and click **Open Anyway**.
+   Or run this once in Terminal:
+   ```sh
+   xattr -dr com.apple.quarantine "/Applications/Air Traffic.app"
+   ```
+3. Click **Make Default** in the window that opens.
+
+### Build from source
+
+Needs Xcode 26 or later. Apps you build yourself aren't quarantined, so there's no extra step.
 
 ```sh
-git clone <this repo> && cd air-traffic
+git clone https://github.com/dskiba/air-traffic.git && cd air-traffic
 ./build.sh install    # builds a universal app, copies it to /Applications, launches it
 ```
 

@@ -1,0 +1,17 @@
+name: Feature request
+description: Suggest something Air Traffic should do.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The situation, not the solution, e.g. "Links from Teams should open in my work Edge profile".
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: How would you like it to work?
+  - type: markdown
+    attributes:
+      value: Air Traffic stays small on purpose, so features that add UI or dependencies need a strong case.
