@@ -1,0 +1,24 @@
+name: Bug report
+description: A link went to the wrong place, or something broke.
+body:
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Air Traffic version (Settings header) and macOS version.
+      placeholder: "v0.1.0, macOS 26.2"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Include the link (or its shape, e.g. "a zoom.us/j/… link from Slack") and the browser it should open in.
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Relevant rules
+      description: The matching part of ~/.config/air-traffic/config.json, if any.
+      render: json
