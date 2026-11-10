@@ -22,6 +22,11 @@ if [ -d Resources/AppIcon.icon ]; then
     --output-partial-info-plist build/icon-info.plist >/dev/null
 fi
 
+# Release builds stamp the version from the git tag: VERSION=1.2.3 ./build.sh
+if [ -n "${VERSION:-}" ]; then
+  plutil -replace CFBundleShortVersionString -string "$VERSION" "$APP/Contents/Info.plist"
+fi
+
 codesign --force --options runtime --sign "${SIGN_ID:--}" "$APP"
 du -sh "$APP"
 
